@@ -124,6 +124,7 @@ export function fetchProducts(query = '') {
           .then(handleErrors)
           .then(res => res.json())
           .then(rev => {
+            console.error("reviews", rev)
             dispatch(fetchReviews(rev));
           })
           .catch(error => dispatch(fetchProductsFailure(error)));

@@ -26,6 +26,7 @@ export default function productReducer(state = initialState, action) {
 
     switch(action.type) {
       case FETCH_PRODUCTS_BEGIN:
+        state.items = []
         return {
           ...state,
           loading: true,

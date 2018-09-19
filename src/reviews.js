@@ -7,8 +7,10 @@ class Reviews extends Component {
 
     constructor(props){
         super(props)
+        const id = this.props.products[0].id;
+
         this.state = {makeReview: {
-            ProductId: this.props.id,
+            ProductId: id,
             ReviewText:'',
             Rating: '',
             Name:''
@@ -23,12 +25,15 @@ class Reviews extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        const id = this.props.products[0].id;
+        console.error("SETTING ID TO", id)
+        this.state.makeReview.ProductId = id;
         this.props.dispatch(getReview(this.state.makeReview));
         this.setState({makeReview: {
             Name: '',
             Rating: '',
             ReviewText:'',
-            ProductId: this.props.id,
+            ProductId: id,
         }
           });
           console.error("REFIEW", this.props.id)
@@ -49,7 +54,9 @@ class Reviews extends Component {
     render() {
         const makeReview = this.state.makeReview;
         const { error, loading, reviews } = this.props;
-        const getReviewsByProductId =  reviews.filter((item) => item.ProductId === this.props.id.id);
+        const id = this.props.products[0].id;
+
+        const getReviewsByProductId =  reviews.filter((item) => item.ProductId === id);
         if (error) {
           return <div>Error! {error.message}</div>;
         }
