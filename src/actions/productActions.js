@@ -70,12 +70,12 @@ export const fetchProductsError = error => ({
 export function fetchProducts(query = '') {
   return dispatch => {
       dispatch(fetchProductsBegin());
-      console.error("FETCH PRODUCTS", query)
+
       return fetch('http://localhost:1337/product' + query)
         .then(handleErrors)
         .then(res => res.json())
         .then(products => {
-          console.error("FETCHING PRODUCTS", products)
+
           dispatch(fetchProductsSuccess(products));
         })
         .catch(error => dispatch(fetchProductsFailure(error)));
@@ -103,13 +103,13 @@ export function fetchProducts(query = '') {
       method: 'POST'
     };
     return dispatch => {
-      console.log("this is a review", makeReview)
+
       return fetch('http://localhost:1337/review', myHeader)
       .then(handleErrors)
       .then(res => res.json())
       .then(rev => {
         dispatch(fetchReview());
-        console.log('This was a POST request', rev);
+
       })
       .catch((error) => {
         console.log(error)
@@ -148,7 +148,6 @@ export function fetchProducts(query = '') {
       .then(res => res.json())
       .then(order => {
         dispatch(makeNewOrder(order));
-        console.log('This was a POST request', order);
         localStorage.clear();
         dispatch(clearCart());
       })
