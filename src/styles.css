@@ -1,0 +1,338 @@
+.welcome {
+    background-color: cadetblue;
+    color: white;
+    font-size: 20px;
+    padding: 20px;
+}
+
+/* Style main content page header and sort */
+
+.flex-main-content {
+  display: flex;
+  justify-content: space-between;
+  max-width: 87%;
+  margin: 0 auto;
+  background-color: #F1F1F1;
+}
+.test {
+
+  font-size: 20px;
+  padding: 10px;
+  font-weight: bold;
+}
+
+/* Dropdown Button */
+.dropbtn {
+  background-color:#F1F1F1;
+  color: black;
+  padding: 10px;
+  font-size: 20px;
+  border: none;
+  font-weight: bold;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 60px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #ddd;}
+
+/* Styling prodlist */
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .flex a {
+    text-decoration: none;
+    color: black;
+  }
+  .flex > section {
+    flex: 1 1 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px;
+  }
+  .flex ul {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .flex aside {
+    width: 100%;
+  }
+
+  .flex > section {
+    background: #fff;
+    padding: 1em;
+    margin: 0.5em;
+    border-radius: 4px;
+  }
+
+  .flex > section > p {
+    flex-grow: 1;
+    /* max-width: 75ch; */
+    width: 350px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+
+  }
+
+  .flex ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .flex li {
+    background: #eee;
+    font-weight: 200;
+    padding: 0.3em 0.6em;
+    /* border-radius: 1em; */
+    border-radius: 4px;
+  }
+
+.prodImg {
+    width: 400px;
+    height: 300px;
+    border-radius: 2px;
+}
+h2 {
+    font-size: 25px;
+  }
+
+button {
+    background: bisque url(http://i.imgur.com/RWKrr8S.png);
+    background-repeat: no-repeat;
+    background-position: 2em 50%;
+    background-size: 2em;
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #FFF;
+    font-weight: bold;
+    font-size: 13px;
+    padding: 1.5em 3em;
+    padding-left: 6em;
+    text-transform: uppercase;
+    display: block;
+    width: 100%;
+  }
+
+  button:hover {
+    background-color: #FFEEC4;
+    background-size: 3em;
+    background-position: 1.5em 50%;
+  }
+
+/* Style the header with a grey background and some padding */
+.header {
+    position:relative;
+    overflow: hidden;
+    background-color: #f1f1f1;
+    padding: 20px 10px;
+    width: 86%;
+    margin:0 auto;
+  }
+
+  /* Style the header links */
+  .header a {
+    float: left;
+    color: black;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 25px;
+    border-radius: 4px;
+  }
+
+  /* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
+  .header a.logo {
+    font-size: 25px;
+    font-weight: bold;
+    font: 400 35px/1.2 'Leckerli One', Helvetica, sans-serif;
+    color: #000;
+    text-shadow: 2px 2px 0px rgba(0,0,0,0.2), 4px 4px 8px rgba(0,0,0,0.2);
+  }
+
+  /* Change the background color on mouse-over */
+  .header a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+  /* Style the active/current link*/
+  /* .header a.active {
+    background-color: dodgerblue;
+    color: white;
+  } */
+
+  /* Float the link section to the right */
+  .header-right {
+    float: right;
+  }
+
+
+  .header-down a {
+    color: black;
+    text-align: center;
+    padding: 12px;
+    margin-right: 25px;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 25px;
+    border-radius: 4px;
+  }
+
+  .slider-img img {
+    width: 100%;
+    height: 440px;
+    margin: 0 auto;
+  }
+
+  .slick-initialized {
+    width: 87%;
+    margin: 0 auto;
+  }
+
+  /* checkout */
+
+
+  .mainCheck{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 40px;
+  }
+
+  .checkout {
+    width: 37%;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 5px 20px 15px 20px;
+  }
+  .checkout  input[type=text] {
+    width: 50%;
+    margin-bottom: 20px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  .checkout-order {
+    /* display: flex; */
+    width: 37%;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 5px 20px 15px 20px;
+  }
+  .checkout-order-items {
+    display: flex;
+    padding: 5px 20px 15px 20px;
+    justify-content: space-evenly;
+  }
+/* reviews */
+.main-reviews {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 40px;
+}
+
+.reviews-form {
+  width: 45%;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  background-color: #f2f2f2;
+  padding: 5px 20px 15px 20px;
+}
+.reviews-form  input[type=text], textarea, fieldset {
+  width: 95%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+
+.reviews {
+  /* display: flex; */
+  width: 45%;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  background-color: #f2f2f2;
+  padding: 5px 20px 15px 20px;
+}
+
+.pp {
+  width: 85%;
+  padding: 12px;
+  margin: 0 auto;
+}
+.pp ul{
+  list-style-type: none;
+  padding: 0;
+}
+.pp li{
+    background: #eee;
+    font-weight: 200;
+    padding: 0.3em 0.6em;
+    /* border-radius: 1em; */
+    border-radius: 4px;
+}
+.pp button:focus {outline:0;}
+.testing {
+  float: left;
+}
+.testing2 {
+  float: right;
+}
+
+.added {
+  display: flex;
+  justify-content: center;
+  color: rgb(57, 211, 57);
+}
+
+  /* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */ 
+  @media screen and (max-width: 500px) {
+    .header a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+    .header-right {
+      float: none;
+    }
+  }
