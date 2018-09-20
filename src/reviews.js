@@ -10,7 +10,6 @@ class Reviews extends Component {
         const id = this.props.products[0].id;
 
         this.state = {
-            mySecret: false,
             makeReview: {
             ProductId: id,
             ReviewText:'',
@@ -27,7 +26,6 @@ class Reviews extends Component {
     handleSubmit(e) {
         e.preventDefault();
         const id = this.props.products[0].id;
-        console.error("SETTING ID TO", id)
         this.state.makeReview.ProductId = id;
         this.props.dispatch(getReview(this.state.makeReview));
         this.setState({makeReview: {
@@ -49,21 +47,12 @@ class Reviews extends Component {
         e.preventDefault();
     }
 
-    handleClick () {
-        if(getReviewsByProductId.length < 0){
-            this.setState({
-            mySecret: !this.state.mySecret
-        });
-         }else {
-
-        }
-    }
-
 
     render() {
         const makeReview = this.state.makeReview;
         const { error, loading, reviews } = this.props;
         const id = this.props.products[0].id;
+        let test;
 
 
         const getReviewsByProductId =  reviews.filter((item) => item.ProductId === id);
@@ -74,6 +63,21 @@ class Reviews extends Component {
         if (loading) {
           return <div>Loading...</div>;
         }
+
+        if(getReviewsByProductId.length){
+            test = getReviewsByProductId.map((item, index) =>
+                <div key={index.toString()}>
+                    <ul>
+                        <li><strong>Customer</strong> {item.Name}</li>
+                        <li>{item.Rating}/5 stars</li>
+                        <li>{item.ReviewText}</li>
+                    </ul>
+                </div>
+             )
+        } else {
+            test = <div><strong>Be the first to leave a review!</strong></div>
+        }
+
 
         return (
             <div className="main-reviews">
@@ -97,20 +101,11 @@ class Reviews extends Component {
                     </fieldset>
                     <textarea ref="ReviewText" id="ReviewText" onChange={(e)=>this.handleOnchange("ReviewText", e)}
                     value={makeReview.ReviewText} name="ReviewText" placeholder="enter comment"></textarea><br />
-                        <button onClick={()=>this.handleClick()} type="Submit">Send</button>
+                        <button type="Submit">Send</button>
                     </form>
                  </div>
                  <div className="reviews">
-                 <div  className={this.state.mySecret ? 'show' : 'hide'}>Be the first to leave a review!</div>
-                    {getReviewsByProductId.map((item, index) =>
-                        <div key={index.toString()}>
-                            <ul>
-                                <li><strong>Customer</strong> {item.Name}</li>
-                                <li>{item.Rating}/5 stars</li>
-                                <li>{item.ReviewText}</li>
-                            </ul>
-                        </div>
-                     )}
+                    {test}
                 </div>
             </div>
         )
