@@ -14,7 +14,6 @@ class Productpage extends Component {
             }
         }
     }
-    // cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
 
     handleSetState(payload) {
         this.mounted ? this.setState(payload)
@@ -28,8 +27,6 @@ class Productpage extends Component {
     componentDidMount() {
         this.mounted = true;
 
-        // console.log('match', this.props.match.params.name);
-        console.error("first entry", this.props.match.params.name)
         this.props.dispatch(fetchProducts('?name='+this.props.match.params.name));
       }
 
@@ -37,9 +34,6 @@ class Productpage extends Component {
         e.preventDefault();
 
         this.props.dispatch(fetchCart(product));
-        // this.cartItems.push(product);
-        // localStorage.setItem("cartItems", JSON.stringify(this.cartItems));
-        // console.log(this.cartItems)
 
         this.handleSetState ({
             message: {...this.state.message, content:'Added to cart', style:''}
@@ -51,7 +45,6 @@ class Productpage extends Component {
             })
         }, 2000);
 
-        console.log(this.state)
       }
 
 
@@ -72,7 +65,6 @@ class Productpage extends Component {
 
         const product = products[0];
 
-        console.error("PRODUCT IS ", product)
 
         return (
             <div className="pp">

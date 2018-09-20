@@ -20,8 +20,6 @@ class Checkout extends Component {
           }
     }
     componentDidMount () {
-        console.log('testing checkout', this.props.cart)
-        console.log('didmout',this.state)
     }
 
     handleSubmit(e) {

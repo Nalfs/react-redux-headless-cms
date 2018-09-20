@@ -9,14 +9,15 @@ class Reviews extends Component {
         super(props)
         const id = this.props.products[0].id;
 
-        this.state = {makeReview: {
+        this.state = {
+            mySecret: false,
+            makeReview: {
             ProductId: id,
             ReviewText:'',
             Rating: '',
             Name:''
           }
         }
-        console.error("constructor", this.props.id)
     }
 
     componentDidMount() {
@@ -36,18 +37,26 @@ class Reviews extends Component {
             ProductId: id,
         }
           });
-          console.error("REFIEW", this.props.id)
 
           return false;
     }
 
     handleOnchange(key, e){
         const val = e.target.value;
-        //  console.log('asdada', val)
          let makeReview = this.state.makeReview;
         makeReview[key] = val;
         this.setState({makeReview})
         e.preventDefault();
+    }
+
+    handleClick () {
+        if(getReviewsByProductId.length < 0){
+            this.setState({
+            mySecret: !this.state.mySecret
+        });
+         }else {
+
+        }
     }
 
 
@@ -55,6 +64,7 @@ class Reviews extends Component {
         const makeReview = this.state.makeReview;
         const { error, loading, reviews } = this.props;
         const id = this.props.products[0].id;
+
 
         const getReviewsByProductId =  reviews.filter((item) => item.ProductId === id);
         if (error) {
@@ -64,10 +74,6 @@ class Reviews extends Component {
         if (loading) {
           return <div>Loading...</div>;
         }
-
-
-        console.log('what is this', this.props.id   )
-        console.log('reviews', getReviewsByProductId)
 
         return (
             <div className="main-reviews">
@@ -91,10 +97,11 @@ class Reviews extends Component {
                     </fieldset>
                     <textarea ref="ReviewText" id="ReviewText" onChange={(e)=>this.handleOnchange("ReviewText", e)}
                     value={makeReview.ReviewText} name="ReviewText" placeholder="enter comment"></textarea><br />
-                        <button type="Submit">Send</button>
+                        <button onClick={()=>this.handleClick()} type="Submit">Send</button>
                     </form>
                  </div>
                  <div className="reviews">
+                 <div  className={this.state.mySecret ? 'show' : 'hide'}>Be the first to leave a review!</div>
                     {getReviewsByProductId.map((item, index) =>
                         <div key={index.toString()}>
                             <ul>

@@ -10,15 +10,7 @@ class ProductList extends Component {
 
       }
 
-      componentDidUpdate(prevProps) {
-        // const category = this.props.match.params.category;
-
-        // if(prevProps.match.params.category !== category) {
-        //   // this.props.dispatch(fetchProducts());
-        // }else {
-        //   this.props.dispatch(fetchProducts('?category=' + prevProps));
-        // }
-
+      componentDidUpdate() {
       }
 
       getPrice(e) {
@@ -54,23 +46,16 @@ class ProductList extends Component {
         if (loading) {
           return <div>Loading...</div>;
         }
-        // console.log('mina produkter', products)
-        console.log('hello', this.props.match.params.category)
-        console.log('products', products)
-
-        // Fix
         const currentCategory = this.props.match.params.category || '';
         let productList = [];
 
         if (currentCategory !== undefined && currentCategory !== ''){
-          console.log('here')
           productList = products.filter(item => item.category === currentCategory);
 
         } else {
           productList = products;
         }
 
-        console.log(productList);
 
         return (
           <div>
