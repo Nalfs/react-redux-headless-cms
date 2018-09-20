@@ -30,10 +30,17 @@ class Productpage extends Component {
         this.props.dispatch(fetchProducts('?name='+this.props.match.params.name));
       }
 
+      getQty(product) {
+        let stock;
+        console.log('whats this')
+      //   product.quantity = stock;
+        stock = stock -1
+    }
+
       getItem(product,e) {
         e.preventDefault();
-
         this.props.dispatch(fetchCart(product));
+        this.getQty();
 
         this.handleSetState ({
             message: {...this.state.message, content:'Added to cart', style:''}
@@ -66,6 +73,7 @@ class Productpage extends Component {
         const product = products[0];
 
 
+
         return (
             <div className="pp">
                 <div>
@@ -81,7 +89,7 @@ class Productpage extends Component {
                             <li>Price: {product.price}kr/kg</li>
                         </ul>
                         <ul className="testing2">
-                             <li>Qty: {product.quantity}</li>
+                             <li>Qty: {}</li>
                         </ul>
                             <button onClick={(e)=>this.getItem(product,e)}>Add to Cart</button>
                             <div className="added">
